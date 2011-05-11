@@ -15,6 +15,12 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, :size => 20 %>
   </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, :size => 20 %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
@@ -25,7 +31,7 @@
   </div>
   <div class="field">
     <%= f.label :sex %><br />
-    <%= f.select :sex, ['Male', 'Female']%> 
+    <%= f.select :sex, ['Male', 'Female'], :include_blank => true %> 
   </div>
   <div class="field">
     <%= f.label :notes %><br />
