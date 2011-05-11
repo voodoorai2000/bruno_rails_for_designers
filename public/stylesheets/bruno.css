@@ -26,3 +26,6 @@ body {background-color:#ccc}
   font-size: 12px;
   list-style: square;
 }
+
+#menu a {color:green}
+#menu li { background-color:red}

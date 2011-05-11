@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+before_filter :authenticate, :only => :show
+
+layout "admin"
+
   # GET /users
   # GET /users.xml
   def index
@@ -80,4 +85,17 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+private
+	def authenticate
+		if User.find(params[:id]).first_name == "Misterioso"
+		redirect_to root_path, :notice => "Acceso restringido"
+		end
+	end 
+
 end
+
+
+
+
+
