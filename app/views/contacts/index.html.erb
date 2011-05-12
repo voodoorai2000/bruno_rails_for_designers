@@ -13,15 +13,19 @@
   </tr>
 
 <% @contacts.each do |contact| %>
-<%= render :partial => "contact", :locals => { :contact => contact } %>
+  <tr>
+    <td><%= contact.name %></td>
+    <td><%= contact.email %></td>
+    <td><%= contact.newsletter %></td>
+    <td><%= contact.sex %></td>
+    <td><%= contact.notes %></td>
+    <td><%= link_to 'Show', contact %></td>
+    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+    <td><%= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
 <% end %>
 </table>
 
 <br />
 
 <%= link_to 'New Contact', new_contact_path %>
-
-<br />
-
-<%= link_to 'Active Contact', active_contacts_path %>
-

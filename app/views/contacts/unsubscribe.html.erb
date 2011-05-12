@@ -1,14 +1,11 @@
-<h1>Unsubscribe</h1>
-
 <%= form_for(@contact) do |f| %>
 
   <div class="field">
+    <%= f.label :newsletter %><br/>
     <%= f.check_box :newsletter, :checked => true  %>
-    <%= f.label :newsletter, "Uncheck this check box to stop receiving our newsletter" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Enviar" %>
+    <%= f.submit %>
   </div>
-
 <% end %>
