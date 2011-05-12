@@ -44,6 +44,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
+        UserMailer.welcome(@contact).deliver
         format.html { redirect_to(@contact, :notice => 'Mensaje enviado!') }
         format.xml  { render :xml => @contact, :status => :created, :location => @contact }
       else
@@ -79,5 +80,13 @@ class ContactsController < ApplicationController
       format.html { redirect_to(contacts_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def unsubscribe
+    @contact = Contact.find(params[:id])
+  end
+  
+  def active
+    @contacts = Contact.active
   end
 end
