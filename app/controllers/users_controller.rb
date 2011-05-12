@@ -88,7 +88,8 @@ layout "admin"
 
 private
 	def authenticate
-		if User.find(params[:id]).first_name == "Misterioso"
+	user = User.find(params[:id])
+		if user.first_name == "Misterioso"
 		redirect_to root_path, :notice => "Acceso restringido"
 		end
 	end 

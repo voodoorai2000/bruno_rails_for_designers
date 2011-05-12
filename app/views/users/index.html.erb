@@ -9,8 +9,8 @@
     <th></th>
   </tr>
 
-<% @users.each do |user| %>
-  <tr>
+<% @users.each_with_index do |user,index| %>
+  <tr class="<%= alter_column_css(index) %>">
     <td><%= name(user) %></td>
     <td><%= user.email %></td>
     <td><%= link_to 'Show', user %></td>
@@ -20,6 +20,4 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New User', new_user_path %>
+<p><%= link_to 'New User', new_user_path %></p>
