@@ -1,4 +1,4 @@
-<h1>Listing active contacts</h1>
+<h1>Active contacts</h1>
 
 <table>
   <tr>
@@ -13,19 +13,16 @@
   </tr>
 
 <% @contacts.each do |contact| %>
-  <tr>
-    <td><%= contact.name %></td>
-    <td><%= contact.email %></td>
-    <td><%= contact.newsletter %></td>
-    <td><%= contact.sex %></td>
-    <td><%= contact.notes %></td>
-    <td><%= link_to 'Show', contact %></td>
-    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-    <td><%= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+
+<%= render :partial => "contact", :locals => { :contact => contact } %>
+
 <% end %>
 </table>
 
 <br />
 
 <%= link_to 'New Contact', new_contact_path %>
+
+<br />
+
+<%= link_to 'Contacts', contacts_path %>

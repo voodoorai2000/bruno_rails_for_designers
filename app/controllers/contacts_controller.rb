@@ -45,7 +45,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.save
         UserMailer.welcome(@contact).deliver
-        format.html { redirect_to(@contact, :notice => 'Mensaje enviado!') }
+        format.html { redirect_to(@contact, :notice => t(:send_contact) ) }
         format.xml  { render :xml => @contact, :status => :created, :location => @contact }
       else
         format.html { render :action => "new" }
